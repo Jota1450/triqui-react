@@ -1,0 +1,16 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 4px;
+  grid-row-gap: 4px;
+  width: 140px;
+}
+
+.square {
+  height: 40px;
+  width: 40px;
+  border-color: blueviolet;
+  border-style: solid;
+  cursor: pointer;
+}
