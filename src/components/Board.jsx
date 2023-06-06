@@ -14,7 +14,7 @@ function Board({ changeTurno, squares, turno, gameOver }) {
         return (
           <div
             key={`square_${index}`}
-            className="square"
+            className="square center"
             onClick={() => handleClick(index)}
           >
             <Symbol symbol={square} />

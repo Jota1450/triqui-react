@@ -1,5 +1,5 @@
 const Score = ({ turno }) => {
-  return <div>Es el turno de jugador #{turno}</div>;
+  return <h1>Es el turno de jugador #{turno}</h1>;
 };
 
 export default Score;

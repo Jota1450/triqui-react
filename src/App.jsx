@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import { calculateWinner } from "./utils";
 import Board from "./components/Board";
 import Score from "./components/Score";
-import { calculateWinner } from "./utils";
+import "./App.css";
 
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null));
@@ -13,28 +13,30 @@ const App = () => {
     const winner = calculateWinner(squares);
     if (winner !== null) {
       setTimeout(() => {
-        alert("Gano el sapo" + winner);
+        const winnerText = winner === "O" ? "#1" : "#2";
+        alert("Gano el jugador " + winnerText);
         setGameOver(true);
+        restart();
       }, "200");
     }
   }, [JSON.stringify(squares)]);
 
-  const changeTurno = () => {
+  function changeTurno() {
     if (turno === 1) {
       setTurno(2);
     } else {
       setTurno(1);
     }
-  };
+  }
 
-  const restart = () => {
+  function restart() {
     setSquares(Array(9).fill(null));
     setGameOver(false);
     setTurno(1);
-  };
+  }
 
   return (
-    <div className="App">
+    <div className="App center">
       <Score turno={turno} />
       <Board
         changeTurno={changeTurno}
@@ -42,6 +44,7 @@ const App = () => {
         turno={turno}
         gameOver={gameOver}
       />
+      <br />
       <button onClick={restart}>Reiniciar</button>
     </div>
   );
