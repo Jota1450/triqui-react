@@ -12,6 +12,7 @@
   width: 40px;
   border-color: blueviolet;
   border-style: solid;
+  border-radius: 8px;
   cursor: pointer;
 }
 
